@@ -4,6 +4,8 @@ apt_packages=(
     # Essentials
     'git'
     'wget'
+    'curl'
+    'btop'
     'zsh'
 )
 
