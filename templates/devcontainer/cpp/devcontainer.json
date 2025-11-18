@@ -1,0 +1,16 @@
+{
+    "name": "Cpp",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "ms-vscode.cpptools", // C/C++ Erweiterung
+        "ms-vscode.cmake-tools" // Optional: Für CMake-Projekte
+    ],
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "remoteUser": "root"
+}

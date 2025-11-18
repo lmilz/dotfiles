@@ -1,0 +1,17 @@
+{
+    "name": "Global DevContainer",
+    "dockerFile": "Dockerfile",
+    "workspaceFolder": "/workspace",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind"
+    ],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "ms-python.python",
+        "rust-lang.rust-analyzer",
+        "ms-vscode.cpptools"
+    ],
+    "postCreateCommand": "echo 'Devcontainer ready! Rust, C++, Python installed.'"
+}
