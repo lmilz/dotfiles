@@ -1,4 +1,3 @@
-
 FROM ubuntu:22.04
 
 
@@ -34,6 +33,11 @@ RUN pip3 install --no-cache-dir \
     mypy \
     jupyter
 
+# Node.js 22 LTS + npm
+RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g npm@latest \
+    && npm install -g yarn
 
 RUN mkdir /workspace
 WORKDIR /workspace
