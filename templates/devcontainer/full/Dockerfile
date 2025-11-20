@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     curl \
     wget \
+    ruby-full \
+    zlib1g-dev \
     ca-certificates \
     python3 \
     python3-pip \
@@ -34,10 +36,13 @@ RUN pip3 install --no-cache-dir \
     jupyter
 
 # Node.js 22 LTS + npm
-RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
-    && apt-get install -y nodejs \
-    && npm install -g npm@latest \
-    && npm install -g yarn
+#RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+#    && apt-get install -y nodejs \
+#    && npm install -g npm@latest \
+#    && npm install -g yarn
+
+# Jekyll
+RUN gem install jekyll bundler
 
 RUN mkdir /workspace
 WORKDIR /workspace
