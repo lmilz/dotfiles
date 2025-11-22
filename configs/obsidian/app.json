@@ -1,0 +1,7 @@
+{
+  "showLineNumber": false,
+  "userIgnoreFilters": [
+    "Resources/quartz/",
+    "Projects/"
+  ]
+}
