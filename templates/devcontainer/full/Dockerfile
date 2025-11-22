@@ -1,5 +1,4 @@
-FROM ubuntu:22.04
-
+FROM debian:bookworm-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
@@ -20,29 +19,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     g++ \
     lsb-release \
     unzip \
-    && rm -rf /var/lib/apt/lists/*
-
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Rust
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y --profile minimal
 ENV PATH="/root/.cargo/bin:${PATH}"
 
-# Python
-RUN pip3 install --no-cache-dir \
-    ipython \
-    black \
-    flake8 \
-    mypy \
-    jupyter
-
-# Node.js 22 LTS + npm
-#RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
-#    && apt-get install -y nodejs \
-#    && npm install -g npm@latest \
-#    && npm install -g yarn
-
 # Jekyll
-RUN gem install jekyll bundler
+RUN gem install --no-document jekyll bundler
 
 RUN mkdir /workspace
 WORKDIR /workspace
