@@ -7,6 +7,23 @@ apt_packages=(
     'curl'
     'btop'
     'zsh'
+
+    # Development Basics
+    'build-essential'
+    'cmake'
+    'clang'
+    'g++'
+
+    # Editors
+    'neovim'
+
+    # Python
+    'python3'
+    'python3-pip'
+    'python3-venv'
+
+    # Ruby
+    'ruby-full'
 )
 
 # Colors
@@ -16,39 +33,39 @@ LIGHT='\x1b[2m'
 RESET='\033[0m'
 
 # Debian / Ubuntu system
-# Install base packages in Advanced Packaging Tool
 if [ -f "/etc/debian_version" ]; then
-    # Print intro message
-    echo -e "${PURPLE}Starting Debian/ Ubuntu package install & update script"
-    echo -e "${RESET}"
+    echo -e "${PURPLE}Starting Debian/Ubuntu package install & update script${RESET}"
 
-    # Check apt-get actually installed
     if ! hash apt 2> /dev/null; then
-        echo "${YELLOW}apt doesn't seem to be present on your system. Exiting...${RESET}"
+        echo "${YELLOW}apt does not seem to be present. Exiting...${RESET}"
         exit 1
     else
-        echo -e "${YELLOW}apt is installed!"
-        echo -e "${RESET}"
+        echo -e "${YELLOW}apt is installed!${RESET}"
     fi    
 
-    # update package database
     echo -e "${PURPLE}Updating database...${RESET}"
     sudo apt update
 
-    # upgrade currently installed packages
     echo -e "${PURPLE}Upgrading installed packages...${RESET}"
-    sudo apt upgrade
+    sudo apt upgrade -y
 
-    # clear old package caches
     echo -e "${PURPLE}Freeing up disk space...${RESET}"
     sudo apt autoclean
 
-    # install all listed packages
-    echo -e "${PURPLE}Starting install...${RESET}"
+    echo -e "${PURPLE}Installing packages...${RESET}"
     for package in ${apt_packages[@]}; do
-        echo -e "${PURPLE}[Installing]${LIGHT} Downloading ${package}...${RESET}"
-        sudo apt install ${package} --assume-yes
+        echo -e "${PURPLE}[Installing]${LIGHT} ${package}...${RESET}"
+        sudo apt install -y --no-install-recommends ${package}
     done
+
+    echo -e "${PURPLE}Installing Rust (rustup minimal)...${RESET}"
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
+
+    # Add Rust to PATH for current session
+    export PATH="$HOME/.cargo/bin:$PATH"
+
+    echo -e "${PURPLE}Installing Jekyll + Bundler...${RESET}"
+    gem install --no-document jekyll bundler
 fi
 
 echo -e "${PURPLE}Finished installing / updating Debian packages.${RESET}"
