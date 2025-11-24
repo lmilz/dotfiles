@@ -5,8 +5,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
 
 plugins=(
-    git 
-    vscode 
+    git  
     docker
     zsh-autosuggestions
     zsh-syntax-highlighting
@@ -15,7 +14,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # editor
-export EDITOR="code"
+export EDITOR="nvim"
 
 # history
 HISTFILE=~/.zsh_history
@@ -33,6 +32,3 @@ setopt share_history
 source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 autoload -U compinit
 compinit
-
-# prompt
-PROMPT='%F{blue}%~%f $(git_prompt_info)%# '
