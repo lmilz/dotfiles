@@ -9,50 +9,29 @@ apt_packages=(
     'zsh'
     'tmux'
     'htop'
-    'software-properties-common'
+    'neovim'
 
     # Core dev tools
     'build-essential'
     'cmake'
     'make'
-    'automake'
-    'autoconf'
-    'pkg-config'
     'gdb'
     'clang'
     'clang-format'
     'g++'
-    'valgrind'
 
-    # Editor / Tools
-    'neovim'
-    'nano'
-    'fzf'
-    'ripgrep'
-    'fd-find'
-
-    # Python full
-    'python3'
+    # Language
+    'python3' # Python 3
     'python3-pip'
     'python3-venv'
     'python3-dev'
-
-    # Ruby
-    'ruby-full'
-    'zlib1g-dev'
-
-    # System libs
-    'lsb-release'
-    'unzip'
-    'ca-certificates'
-
-    # Networking tools
-    'net-tools'
-    'dnsutils'
-    'iputils-ping'
+    'ruby-full' #Ruby
+    'nodejs' # Node.js
+    'npm'
+    'golang' # Go
 
     # Fonts
-    fonts-jetbrains-mono
+    'fonts-jetbrains-mono'
 )
 
 # Colors
@@ -82,7 +61,7 @@ if [ -f "/etc/debian_version" ]; then
     sudo apt autoremove -y
     sudo apt autoclean
 
-    echo -e "${PURPLE}Installing full development environment...${RESET}"
+    echo -e "${PURPLE}Installing apt packages...${RESET}"
     for package in ${apt_packages[@]}; do
         echo -e "${PURPLE}[Installing]${LIGHT} ${package}...${RESET}"
         sudo apt install -y ${package}
@@ -96,15 +75,11 @@ if [ -f "/etc/debian_version" ]; then
     echo -e "${PURPLE}Installing Jekyll + Bundler...${RESET}"
     gem install --no-document jekyll bundler
 
-    echo -e "${PURPLE}Installing Node.js (for Jekyll, Neovim plugins, JS tooling)...${RESET}"
-    curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-    sudo apt install -y nodejs
-
     echo -e "${PURPLE}Installing common Node dev tools (npm, yarn, pnpm)...${RESET}"
     sudo npm install -g yarn
     sudo npm install -g pnpm
 
-    echo -e "${PURPLE}Development environment installation complete.${RESET}"
+    echo -e "${PURPLE}Installation complete.${RESET}"
 fi
 
 echo -e "${PURPLE}Finished installing / updating Debian packages.${RESET}"
