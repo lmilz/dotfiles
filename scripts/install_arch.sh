@@ -91,15 +91,13 @@ if [[ -f "/etc/arch-release" ]]; then
     
     # zsh Plugins
     # zsh-autosuggestion
-    if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestion" ]]; then
-    	git clone https://github.com/zsh-users/zsh-autosuggestions \
-        	"$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestion"
+    if [[ ! -d "$ZSH_CUSTOM/custom/plugins/zsh-autosuggestion" ]]; then
+    	git clone https://github.com/zsh-users/zsh-autosuggestion.git $ZSH_CUSTOM/plugins/zsh-autosuggestion
     fi
 
     # zsh-syntax-hightlingt
-    if [[ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-hightlingt" ]]; then
-    	git clone https://github.com/zsh-users/zsh-syntax-highlighting \
-        	"$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-hightlingt"
+    if [[ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-hightlingt" ]]; then
+    	git clone https://github.com/zsh-users/zsh-syntax-highlighting "$ZSH_CUSTOM/plugins/zsh-syntax-hightlingt"
     fi
 
     echo -e "${PURPLE}Installing Rust (rustup)...${RESET}"
