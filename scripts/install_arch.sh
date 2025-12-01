@@ -100,6 +100,7 @@ if [[ -f "/etc/arch-release" ]]; then
     	git clone https://github.com/zsh-users/zsh-syntax-highlighting "$ZSH_CUSTOM/plugins/zsh-syntax-hightlingt"
     fi
 
+    # Rust
     echo -e "${PURPLE}Installing Rust (rustup)...${RESET}"
 
     if ! command -v rustup &>/dev/null; then
@@ -114,11 +115,6 @@ if [[ -f "/etc/arch-release" ]]; then
     rustup install stable
     rustup default stable
 
-    echo -e "${PURPLE}Installing Jekyll + Bundler...${RESET}"
-    gem install --no-document jekyll bundler
-
-    echo -e "${PURPLE}Installing Node dev tools (npm, yarn, pnpm)...${RESET}"
-    sudo npm install -g yarn pnpm
 
     echo -e "${PURPLE}Installation complete.${RESET}"
 fi
