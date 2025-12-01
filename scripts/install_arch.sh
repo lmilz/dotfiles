@@ -8,7 +8,6 @@ pacman_packages=(
     'btop'
     'alacritty'
     'zsh'
-    'tmux'
     'htop'
     'neovim'
 
