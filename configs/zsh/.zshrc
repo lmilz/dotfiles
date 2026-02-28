@@ -7,7 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
 
 plugins=(
-    git  
+    git
     docker
     zsh-autosuggestions
     zsh-syntax-highlighting
@@ -28,9 +28,10 @@ setopt auto_cd
 setopt multios
 setopt share_history
 setopt auto_pushd
-setopt share_history
 
-# activate plugins
-source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-autoload -U compinit
-compinit
+# esp-idf: nur bei Bedarf laden
+function idf() {
+  source $HOME/Second-Brain/Resources/esp-idf/export.sh
+  idf "$@"
+}
+

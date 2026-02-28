@@ -1,6 +1,10 @@
 [window]
 decorations = "full"
 opacity = 0.92
+dynamic_padding = false
+
+[general]
+live_config_reload = true
 
 [window.padding]
 x = 12
@@ -10,15 +14,15 @@ y = 10
 size = 12.0
 
 [font.normal]
-family = "JetBrains Mono"
+family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [font.bold]
-family = "JetBrains Mono"
+family = "JetBrainsMono Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "JetBrains Mono"
+family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
 [colors.primary]
