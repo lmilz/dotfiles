@@ -1,0 +1,132 @@
+# Catppuccin Mocha – Starship Prompt
+"$schema" = "https://starship.rs/config-schema.json"
+
+format = """
+[](surface0)\
+$os\
+$username\
+[](bg:surface1 fg:surface0)\
+$directory\
+[](fg:surface1 bg:blue)\
+$git_branch\
+$git_status\
+[](fg:blue bg:teal)\
+$nodejs\
+$rust\
+$golang\
+$python\
+$c\
+[](fg:teal bg:sky)\
+$time\
+[ ](fg:sky)\
+$line_break$character"""
+
+palette = "catppuccin_mocha"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo  = "#f2cdcd"
+pink      = "#f5c2e7"
+mauve     = "#cba6f7"
+red       = "#f38ba8"
+maroon    = "#eba0ac"
+peach     = "#fab387"
+yellow    = "#f9e2af"
+green     = "#a6e3a1"
+teal      = "#94e2d5"
+sky       = "#89dceb"
+sapphire  = "#74c7ec"
+blue      = "#89b4fa"
+lavender  = "#b4befe"
+text      = "#cdd6f4"
+subtext1  = "#bac2de"
+subtext0  = "#a6adc8"
+overlay2  = "#9399b2"
+overlay1  = "#7f849c"
+overlay0  = "#6c7086"
+surface2  = "#585b70"
+surface1  = "#45475a"
+surface0  = "#313244"
+base      = "#1e1e2e"
+mantle    = "#181825"
+crust     = "#11111b"
+
+[os]
+disabled = false
+style = "bg:surface0 fg:text"
+
+[os.symbols]
+Arch   = " "
+EndeavourOS = " "
+Linux  = " "
+
+[username]
+show_always = true
+style_user  = "bg:surface0 fg:text"
+style_root  = "bg:surface0 fg:red"
+format      = "[ $user ]($style)"
+
+[directory]
+style            = "fg:mantle bg:surface1"
+format           = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents"  = "󰈙 "
+"Downloads"  = " "
+"Music"      = "󰝚 "
+"Pictures"   = " "
+"Developer"  = "󰲋 "
+
+[git_branch]
+symbol = ""
+style  = "bg:blue"
+format = "[[ $symbol $branch ](fg:base bg:blue)]($style)"
+
+[git_status]
+style  = "bg:blue"
+format = "[[($all_status$ahead_behind )](fg:base bg:blue)]($style)"
+
+[nodejs]
+symbol = ""
+style  = "bg:teal"
+format = "[[ $symbol( $version) ](fg:base bg:teal)]($style)"
+
+[rust]
+symbol = ""
+style  = "bg:teal"
+format = "[[ $symbol( $version) ](fg:base bg:teal)]($style)"
+
+[golang]
+symbol = ""
+style  = "bg:teal"
+format = "[[ $symbol( $version) ](fg:base bg:teal)]($style)"
+
+[python]
+symbol = ""
+style  = "bg:teal"
+format = "[[ $symbol( $version) ](fg:base bg:teal)]($style)"
+
+[c]
+symbol = " "
+style  = "bg:teal"
+format = "[[ $symbol( $version) ](fg:base bg:teal)]($style)"
+
+[time]
+disabled    = false
+time_format = "%R"
+style       = "bg:sky"
+format      = "[[  $time ](fg:base bg:sky)]($style)"
+
+[line_break]
+disabled = false
+
+[character]
+disabled          = false
+success_symbol    = "[❯](bold green)"
+error_symbol      = "[❯](bold red)"
+vimcmd_symbol     = "[❮](bold green)"
+vimcmd_replace_one_symbol = "[❮](bold mauve)"
+vimcmd_replace_symbol     = "[❮](bold mauve)"
+vimcmd_visual_symbol      = "[❮](bold yellow)"

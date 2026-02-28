@@ -59,3 +59,12 @@ map("n", "<leader>gg", "<cmd>LazyGitCurrentFile<cr>", { desc = "LazyGit" })
 
 -- TODOs
 map("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find TODOs" })
+
+-- Trouble – Diagnose-Liste
+map("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",                    { desc = "Diagnostics" })
+map("n", "<leader>xb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",       { desc = "Buffer Diagnostics" })
+map("n", "<leader>xs", "<cmd>Trouble symbols toggle focus=false<cr>",            { desc = "Symbols" })
+map("n", "<leader>xl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", { desc = "LSP Definitions" })
+
+-- Conform – Format
+map("n", "<leader>cf", function() require("conform").format({ async = true, lsp_fallback = true }) end, { desc = "Format" })

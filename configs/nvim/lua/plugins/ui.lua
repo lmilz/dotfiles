@@ -131,6 +131,40 @@ return {
     end,
   },
 
+  -- Modernes UI für Cmdline, Messages und Popups
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    config = function()
+      require("noice").setup({
+        lsp = {
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
+        },
+        presets = {
+          bottom_search        = true,
+          command_palette      = true,
+          long_message_to_split = true,
+        },
+      })
+    end,
+  },
+
+  -- Diagnose-Liste (LSP Errors/Warnings übersichtlich)
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    cmd = "Trouble",
+    config = true,
+  },
+
   -- Keymap-Übersicht
   {
     "folke/which-key.nvim",
@@ -142,6 +176,7 @@ return {
       -- Gruppen-Labels für leader-Präfixe
       require("which-key").add({
         { "<leader>b",  group = "Buffer" },
+        { "<leader>x",  group = "Trouble" },
         { "<leader>c",  group = "Code" },
         { "<leader>f",  group = "Find" },
         { "<leader>g",  group = "Git" },

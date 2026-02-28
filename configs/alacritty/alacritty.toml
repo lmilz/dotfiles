@@ -2,6 +2,7 @@
 decorations = "full"
 opacity = 0.92
 dynamic_padding = false
+startup_mode = "Maximized"
 
 [general]
 live_config_reload = true
@@ -25,33 +26,69 @@ style = "Bold"
 family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
+# Catppuccin Mocha
 [colors.primary]
-background = "#0b0c0f"
-foreground = "#d6d6d6"
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[colors.cursor]
+text   = "#1e1e2e"
+cursor = "#f5e0dc"
+
+[colors.vi_mode_cursor]
+text   = "#1e1e2e"
+cursor = "#b4befe"
+
+[colors.search.matches]
+foreground = "#1e1e2e"
+background = "#a6adc8"
+
+[colors.search.focused_match]
+foreground = "#1e1e2e"
+background = "#a6e3a1"
+
+[colors.footer_bar]
+foreground = "#1e1e2e"
+background = "#a6adc8"
+
+[colors.hints.start]
+foreground = "#1e1e2e"
+background = "#f9e2af"
+
+[colors.hints.end]
+foreground = "#1e1e2e"
+background = "#a6adc8"
+
+[colors.selection]
+text       = "#1e1e2e"
+background = "#f5e0dc"
 
 [colors.normal]
-black   = "#121212"
-red     = "#ff5370"
-green   = "#2de0a7"
-yellow  = "#ffcb6b"
-blue    = "#82aaff"
-magenta = "#c792ea"
-cyan    = "#89ddff"
-white   = "#d0d0d0"
+black   = "#45475a"
+red     = "#f38ba8"
+green   = "#a6e3a1"
+yellow  = "#f9e2af"
+blue    = "#89b4fa"
+magenta = "#f5c2e7"
+cyan    = "#94e2d5"
+white   = "#bac2de"
 
 [colors.bright]
-black   = "#1e1e1e"
-red     = "#ff757f"
-green   = "#5af8c1"
-yellow  = "#ffe585"
-blue    = "#9cc4ff"
-magenta = "#d9a7ff"
-cyan    = "#a8eaff"
-white   = "#ffffff"
+black   = "#585b70"
+red     = "#f38ba8"
+green   = "#a6e3a1"
+yellow  = "#f9e2af"
+blue    = "#89b4fa"
+magenta = "#f5c2e7"
+cyan    = "#94e2d5"
+white   = "#a6adc8"
 
 [cursor]
 style = "Beam"
 unfocused_hollow = true
+
+[mouse]
+hide_when_typing = true
 
 [scrolling]
 history = 10000
