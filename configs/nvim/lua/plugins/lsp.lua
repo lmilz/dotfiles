@@ -54,7 +54,6 @@ return {
           map("K", vim.lsp.buf.hover, "Hover Docs")
           map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
           map("<leader>rn", vim.lsp.buf.rename, "Rename")
-          map("<leader>cf", vim.lsp.buf.format, "Format")
         end,
       })
     end,
