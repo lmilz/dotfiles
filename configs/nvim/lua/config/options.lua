@@ -41,6 +41,9 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
     vim.opt_local.conceallevel = 2
+    vim.opt_local.wrap        = true   -- Zeilenumbruch aktivieren
+    vim.opt_local.linebreak   = true   -- nur an Wortgrenzen umbrechen
+    vim.opt_local.breakindent = true   -- Einrückung bei umgebrochenen Zeilen beibehalten
     vim.api.nvim_set_hl(0, "@markup.strong",        { bold = true })
     vim.api.nvim_set_hl(0, "@markup.italic",        { italic = true })
     vim.api.nvim_set_hl(0, "@markup.strong.markdown_inline", { bold = true })
